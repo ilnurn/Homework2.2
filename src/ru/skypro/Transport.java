@@ -3,7 +3,18 @@ package ru.skypro;
 public abstract class Transport {
     private final String modelName;
     private int wheelsCount;
-// Создание гетеров
+    private boolean engine = false;
+    private boolean trailer = false;
+
+      public boolean isEngine() {
+        return engine;
+    }
+
+    public boolean isTrailer() {
+        return trailer;
+    }
+
+    // Создание гетеров
     public String getModelName() {
         return modelName;
     }

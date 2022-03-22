@@ -1,4 +1,5 @@
 package ru.skypro;
+
 // Реализация интерфейса Service
 public class ServiceStation implements Service {
 
@@ -18,22 +19,19 @@ public class ServiceStation implements Service {
     private void checkTrailer() {
         System.out.println("Проверяем прицеп");
     }
-// Реализация методов интерфейса и перегрузка метода check
-    @Override
-    public void check(Car car) {
-        updateTire(car);
-        checkEngine();
-    }
 
+    // Реализация методов интерфейса и перегрузка метода check
     @Override
-    public void check(Truck truck) {
-        updateTire(truck);
-        checkEngine();
-        checkTrailer();
-    }
+    public void check(Transport transport) {
 
-    @Override
-    public void check(Bicycle bicycle) {
-        updateTire(bicycle);
+        updateTire(transport);
+        if (transport.isEngine() == true) {
+            checkEngine();
+        }
+        if (transport.isTrailer() == true) {
+            checkTrailer();
+        }
     }
 }
+
+
